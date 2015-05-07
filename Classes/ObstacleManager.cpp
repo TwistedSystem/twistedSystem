@@ -46,4 +46,5 @@ ObstacleManager::~ObstacleManager()
 void ObstacleManager::update(float _deltaTime)
 {
     // TODO
+    // update positions of obstacles currently in play based on game's elapsed time. reset position of obstacle once it falls off conveyor belt.
 }
