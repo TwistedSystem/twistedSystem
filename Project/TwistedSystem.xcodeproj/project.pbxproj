@@ -56,6 +56,8 @@
 		E17C23421AF46B4000CD37AB /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23401AF46B4000CD37AB /* Player.cpp */; };
 		E17C23451AF46B9F00CD37AB /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23431AF46B9F00CD37AB /* Enemy.cpp */; };
 		E17C23481AF46BE700CD37AB /* BaseEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23461AF46BE700CD37AB /* BaseEntity.cpp */; };
+		E17C23521AFAF8FC00CD37AB /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23501AFAF8FC00CD37AB /* Obstacle.cpp */; };
+		E17C23551AFAF92F00CD37AB /* ObstacleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23531AFAF92F00CD37AB /* ObstacleManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,10 @@
 		E17C23441AF46B9F00CD37AB /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		E17C23461AF46BE700CD37AB /* BaseEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseEntity.cpp; sourceTree = "<group>"; };
 		E17C23471AF46BE700CD37AB /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
+		E17C23501AFAF8FC00CD37AB /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
+		E17C23511AFAF8FC00CD37AB /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacle.h; sourceTree = "<group>"; };
+		E17C23531AFAF92F00CD37AB /* ObstacleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObstacleManager.cpp; sourceTree = "<group>"; };
+		E17C23541AFAF92F00CD37AB /* ObstacleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObstacleManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +270,7 @@
 			children = (
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
+				E17C234B1AFAF8C400CD37AB /* Game Objects */,
 				E17C233F1AF46B2300CD37AB /* Player */,
 				E100E8491ACA4500000D8740 /* Scenes */,
 				E100E85C1ACCC61D000D8740 /* Layers */,
@@ -338,6 +345,17 @@
 				E17C23471AF46BE700CD37AB /* BaseEntity.h */,
 			);
 			name = Player;
+			sourceTree = "<group>";
+		};
+		E17C234B1AFAF8C400CD37AB /* Game Objects */ = {
+			isa = PBXGroup;
+			children = (
+				E17C23501AFAF8FC00CD37AB /* Obstacle.cpp */,
+				E17C23511AFAF8FC00CD37AB /* Obstacle.h */,
+				E17C23531AFAF92F00CD37AB /* ObstacleManager.cpp */,
+				E17C23541AFAF92F00CD37AB /* ObstacleManager.h */,
+			);
+			name = "Game Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,8 +481,10 @@
 				E100E85F1ACCC653000D8740 /* GameplayLayer.cpp in Sources */,
 				E17C23451AF46B9F00CD37AB /* Enemy.cpp in Sources */,
 				E100E85B1ACCC612000D8740 /* MainMenuLayer.cpp in Sources */,
+				E17C23521AFAF8FC00CD37AB /* Obstacle.cpp in Sources */,
 				E17C23481AF46BE700CD37AB /* BaseEntity.cpp in Sources */,
 				E17C23421AF46B4000CD37AB /* Player.cpp in Sources */,
+				E17C23551AFAF92F00CD37AB /* ObstacleManager.cpp in Sources */,
 				E17C233E1AF4477E00CD37AB /* BaseLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
