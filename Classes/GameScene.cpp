@@ -12,6 +12,8 @@ using namespace cocos2d;
 
 GameScene::GameScene(bool showAds)
 {
+    setColor(Color3B(255, 255, 255));
+    
     gameplayLayer = new GameplayLayer();
     addChild(gameplayLayer, GAMEPLAY_Z_ORDER);
     

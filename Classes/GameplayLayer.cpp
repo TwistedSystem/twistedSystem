@@ -7,10 +7,13 @@
 //
 
 #include "GameplayLayer.h"
+#include "CocosGUI.h"
+
+using namespace cocos2d;
 
 GameplayLayer::GameplayLayer()
 {
-    
+    player = nullptr;
 }
 
 GameplayLayer::~GameplayLayer()
@@ -20,8 +23,13 @@ GameplayLayer::~GameplayLayer()
 
 void GameplayLayer::enter()
 {
-    player = new Player(0, "testPlayer.png");
-    addChild(player);
+    setVisible(true);
+    
+    if(player == nullptr)
+    {
+        player = new Player(0, "Player_Atlas_Black.png");
+        addChild(player, 100);
+    }
     
     // TODO:
     // create enemy entity's based off filenames determined by other clients

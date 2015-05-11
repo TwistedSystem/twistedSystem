@@ -10,7 +10,10 @@
 
 BaseLayer::BaseLayer()
 {
-    showAds = false;
+    if(initWithColor(cocos2d::Color4B(255,255,255,255)))
+    {
+        showAds = false;
+    }
 }
 
 BaseLayer::~BaseLayer()

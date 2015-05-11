@@ -29,6 +29,7 @@ ObstacleManager::ObstacleManager()
         
         // TODO
         // position obstacle at the back of the conveyor belt. figure out a way to not render obstacle until it is in play.
+        // SetVisible, this is the way to not render something
     }
     
     

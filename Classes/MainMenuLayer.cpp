@@ -79,6 +79,7 @@ void MainMenuLayer::TransitionToGame()
     HideButtons();
     gameplayLayer->enter();
     gameplayLayer->StartGameLoop();
+    setVisible(false);
     // hide ads??
 }
 

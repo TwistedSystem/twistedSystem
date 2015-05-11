@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "cocos2d.h"
 
-class BaseLayer : public cocos2d::Layer
+class BaseLayer : public cocos2d::LayerColor
 {
 public:
     BaseLayer();
