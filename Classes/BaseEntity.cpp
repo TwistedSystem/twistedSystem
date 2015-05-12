@@ -79,10 +79,12 @@ cocos2d::Action* BaseEntity::CreateAnimation(int _numFrames, int _frameWidth, in
 
 void BaseEntity::CreateActions()
 {
-    jumpAction = JumpBy::create(0.6f, Vec2(0, 0), 100.0f, 1);
+    jumpAction = JumpBy::create(0.5f, Vec2(0, 0), 100.0f, 1);
+    jumpAction->retain();
     
     // TODO:
     // create the ducking action
+    // Most likely, there won't be a ducking action. The animation will show the character ducking and the collision box will change.
     
     
     // TODO:
@@ -105,7 +107,7 @@ void BaseEntity::ApplyMovement(int _typeOfMovement)
             
             stopAction(runAnimation);
             runAction(jumpAnimation);
-            //runAction(jumpAction);
+            runAction(jumpAction);
             // play sound effect here
         }
     }
