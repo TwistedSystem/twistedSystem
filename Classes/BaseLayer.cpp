@@ -13,6 +13,7 @@ BaseLayer::BaseLayer()
     if(initWithColor(cocos2d::Color4B(255,255,255,255)))
     {
         showAds = false;
+        visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     }
 }
 

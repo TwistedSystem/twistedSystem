@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "cocos2d.h"
+#include "CocosGUI.h"
 
 class BaseLayer : public cocos2d::LayerColor
 {
@@ -27,6 +28,7 @@ public:
     virtual void exit() = 0;
     
     bool showAds;
+    cocos2d::Size visibleSize;
 };
 
 #endif /* defined(__TwistedSystem__BaseLayer__) */

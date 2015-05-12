@@ -12,6 +12,14 @@
 #include <stdio.h>
 #include "cocos2d.h"
 
+enum PlayerState
+{
+    RUN_STATE = 0,
+    JUMP_STATE = 1,
+    DUCK_STATE = 2,
+    HIT_STATE = 3
+};
+
 class BaseEntity : public cocos2d::Sprite
 {
 public:    
@@ -20,7 +28,7 @@ public:
     
     virtual void update(float _deltaTime);
     
-    virtual void CreateAnimations();
+    virtual cocos2d::Action* CreateAnimation(int _numFrames, int _frameWidth, int _frameHeight, int _offsetX, int _offsetY, bool _repeat, float _frameLength);
     virtual void CreateActions();
     
     virtual void ApplyMovement(int _typeOfMovement);
@@ -40,6 +48,8 @@ public:
     
     cocos2d::JumpBy *jumpAction;
     cocos2d::Action *duckAction;
+    
+    PlayerState currentState;
     
     // do we need this??
     //cocos2d::Action *hitAnimation;

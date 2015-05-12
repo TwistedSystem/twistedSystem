@@ -16,6 +16,13 @@
 #include "Player.h"
 #include "Enemy.h"
 
+enum GameplayButtons
+{
+    JUMP_BUTTON = 0,
+    DUCK_BUTTON = 1,
+    PAUSE_BUTTON = 2
+};
+
 class GameplayLayer : public BaseLayer
 {
 public:
@@ -31,10 +38,14 @@ public:
     virtual void exit() override;
     
     void StartGameLoop();
+    void OnButtonPressed(Ref *pSender);
     
     
     Player *player;
     std::vector<Enemy*> enemies;
+    
+    cocos2d::ui::Button *jumpButton;
+    cocos2d::ui::Button *duckButton;
 };
 
 #endif /* defined(__TwistedSystem__GameplayLayer__) */

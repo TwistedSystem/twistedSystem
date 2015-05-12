@@ -27,9 +27,6 @@ MainMenuLayer::~MainMenuLayer()
 
 void MainMenuLayer::enter()
 {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Point visibleOrigin = Director::getInstance()->getVisibleOrigin();
-    
     playButton = Button::create();
     playButton->setTouchEnabled(true);
     playButton->loadTextures("CloseNormal.png", "CloseSelected.png");

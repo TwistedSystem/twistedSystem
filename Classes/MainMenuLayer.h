@@ -12,8 +12,6 @@
 #include <stdio.h>
 #include "GameplayLayer.h"
 #include "OptionsLayer.h"
-#include "cocos2d.h"
-#include "CocosGUI.h"
 #include "BaseLayer.h"
 
 enum MenuButtons

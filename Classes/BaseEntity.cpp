@@ -17,6 +17,8 @@ BaseEntity::BaseEntity()
         
     playerModel = "";
     
+    currentState = RUN_STATE;
+    
     playerAtlas = nullptr;
         
     jumpAction = nullptr;
@@ -34,69 +36,45 @@ BaseEntity::~BaseEntity()
 
 void BaseEntity::update(float _deltaTime)
 {
-    
+    if(currentState == JUMP_STATE && jumpAnimation->isDone())
+    {
+        if(runAnimation != nullptr)
+        {
+            runAction(runAnimation);
+        }
+        currentState = RUN_STATE;
+    }
+    else if(currentState == DUCK_STATE && duckAnimation->isDone())
+    {
+        if(runAnimation != nullptr)
+        {
+            runAction(runAnimation);
+        }
+        currentState = RUN_STATE;
+    }
+
 }
 
-void BaseEntity::CreateAnimations()
+cocos2d::Action* BaseEntity::CreateAnimation(int _numFrames, int _frameWidth, int _frameHeight, int _offsetX, int _offsetY, bool _repeat, float _frameLength)
 {
-    //////
-    // Creates the running animation Action
+    Vector<SpriteFrame*> animFrames(_numFrames);
     
-    Vector<SpriteFrame*> animFrames(4);
-    //char str[100] = {0};
-    for(int i = 1; i < 4; i++)
+    for(int i = 0; i < _numFrames; i++)
     {
-        //sprintf(str, "conveyor_%01d.png",i);
-        //SpriteFrame *frame = SpriteFrame::create(str,Rect(0,0,512,64));
-        
         // TODO:
         // locate and iterate through each frame of animation in the atlas and use locations in the create function
         
-        SpriteFrame *frame = SpriteFrame::createWithTexture(playerAtlas, Rect(0,0,512,64));
+        SpriteFrame *frame = SpriteFrame::create(playerModel, Rect(_offsetX + (i * _frameWidth), _offsetY, _frameWidth, _frameHeight));
         animFrames.pushBack(frame);
     }
     
-    Animation *animation = Animation::createWithSpriteFrames(animFrames, 0.1f);
+    Animation *animation = Animation::createWithSpriteFrames(animFrames, _frameLength);
     Animate *animate = Animate::create(animation);
-    runAnimation = RepeatForever::create(animate);
     
-    //////
-    // Creates the jumping animation Action
-    
-    animFrames.clear();
-    
-    for(int i = 1; i < 4; i++)
-    {
-        // TODO:
-        // locate and iterate through each frame of animation in the atlas and use locations in the create function
-        
-        SpriteFrame *frame = SpriteFrame::createWithTexture(playerAtlas, Rect(0,0,512,64));
-        animFrames.pushBack(frame);
-    }
-    
-    // This may be leaking memory ???
-    animation = Animation::createWithSpriteFrames(animFrames, 0.1f);
-    animate = Animate::create(animation);
-    jumpAnimation = Repeat::create(animate, 1);
-    
-    //////
-    // Creates the ducking animation Action
-    
-    animFrames.clear();
-    
-    for(int i = 1; i < 4; i++)
-    {
-        // TODO:
-        // locate and iterate through each frame of animation in the atlas and use locations in the create function
-        
-        SpriteFrame *frame = SpriteFrame::createWithTexture(playerAtlas, Rect(0,0,512,64));
-        animFrames.pushBack(frame);
-    }
-    
-    // This may be leaking memory ???
-    animation = Animation::createWithSpriteFrames(animFrames, 0.1f);
-    animate = Animate::create(animation);
-    duckAnimation = Repeat::create(animate, 1);
+    if(_repeat)
+        return RepeatForever::create(animate);
+    else
+        return animate;
 }
 
 void BaseEntity::CreateActions()
@@ -121,11 +99,13 @@ void BaseEntity::ApplyMovement(int _typeOfMovement)
         // jump
 
         // I don't think isDone is the right thing to use here.
-        if(jumpAnimation != nullptr && runAnimation != nullptr && jumpAnimation->isDone())
+        if(jumpAnimation != nullptr && runAnimation != nullptr && currentState != JUMP_STATE)
         {
+            currentState = JUMP_STATE;
+            
             stopAction(runAnimation);
             runAction(jumpAnimation);
-            runAction(jumpAction);
+            //runAction(jumpAction);
             // play sound effect here
         }
     }
@@ -134,11 +114,13 @@ void BaseEntity::ApplyMovement(int _typeOfMovement)
         // duck
         
         // I don't think isDone is the right thing to use here.
-        if(duckAnimation != nullptr && runAnimation != nullptr && duckAnimation->isDone())
+        if(duckAnimation != nullptr && runAnimation != nullptr && currentState != DUCK_STATE)
         {
+            currentState = DUCK_STATE;
+            
             stopAction(runAnimation);
             runAction(duckAnimation);
-            runAction(duckAction);
+            //runAction(duckAction);
             // play sound effect here
         }
 

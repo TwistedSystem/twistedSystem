@@ -15,7 +15,7 @@
 class Player : public BaseEntity
 {
 public:
-    Player(short _playerNum, std::string filename);
+    Player(short _playerNum, std::string _filename);
     ~Player();
     
 

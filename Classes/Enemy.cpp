@@ -18,7 +18,7 @@ Enemy::Enemy(short _playerNum, std::string filename)
         // figure out the model name from filename and assign to playerModel
         
         
-        CreateAnimations();
+        //CreateAnimations();
         CreateActions();
     }
 }
