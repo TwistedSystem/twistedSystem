@@ -12,7 +12,9 @@ using namespace cocos2d;
 
 Player::Player(short _playerNum, std::string _filename)
 {
+    // _playerNum will determine which position this player will spawn in.
     // Rect = float x, float y, float width, float height
+    
     if(initWithFile(_filename.c_str(), cocos2d::Rect(0, 0, 64, 128)))
     {
         playerNum = _playerNum;

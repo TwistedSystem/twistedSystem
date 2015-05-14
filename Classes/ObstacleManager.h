@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "Obstacle.h"
 
-class ObstacleManager
+class ObstacleManager : public cocos2d::Sprite
 {
 public:
     ObstacleManager();
@@ -20,8 +20,11 @@ public:
     
     void update(float _deltaTime);
     
+    void AddObstacle();
+    
     std::vector<Obstacle*> obstacles;
     
+    bool isRunning;
 };
 
 #endif /* defined(__TwistedSystem__ObstacleManager__) */

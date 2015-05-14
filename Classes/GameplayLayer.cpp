@@ -14,6 +14,8 @@ using namespace ui;
 GameplayLayer::GameplayLayer()
 {
     player = nullptr;
+    startTimer = 3.0f;
+    obsTimer = 1.5f;
 }
 
 GameplayLayer::~GameplayLayer()
@@ -33,6 +35,9 @@ void GameplayLayer::enter()
         player = new Player(0, "Player_Atlas_Black.png");
         addChild(player, 100);
     }
+    
+    obsManager = new ObstacleManager();
+    addChild(obsManager, 100);
     
     jumpButton = Button::create();
     jumpButton->setTouchEnabled(true);
@@ -57,9 +62,23 @@ void GameplayLayer::enter()
 
 void GameplayLayer::update(float _deltaTime)
 {
-    int u = 8;
-    u *= _deltaTime;
+    if (startTimer >= 0.0f)
+    {
+        startTimer -= _deltaTime;
+        if(startTimer < 0.0f)
+            obsManager->isRunning = true;
+    }
+    else
+    {
+        obsTimer -= _deltaTime;
+        if(obsTimer < 0.0f)
+        {
+            obsManager->AddObstacle();
+            obsTimer = 3.0f;  // find a way to exponentially decrease this timer number.
+        }
+    }
     
+    obsManager->update(_deltaTime);
     player->update(_deltaTime);
 }
 

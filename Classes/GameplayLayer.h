@@ -15,6 +15,7 @@
 #include "BaseLayer.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "ObstacleManager.h"
 
 enum GameplayButtons
 {
@@ -41,11 +42,16 @@ public:
     void OnButtonPressed(Ref *pSender);
     
     
+    float startTimer;
+    float obsTimer;
+    
     Player *player;
     std::vector<Enemy*> enemies;
     
     cocos2d::ui::Button *jumpButton;
     cocos2d::ui::Button *duckButton;
+    
+    ObstacleManager *obsManager;
 };
 
 #endif /* defined(__TwistedSystem__GameplayLayer__) */

@@ -50,6 +50,8 @@
 		E100E85B1ACCC612000D8740 /* MainMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E100E8591ACCC612000D8740 /* MainMenuLayer.cpp */; };
 		E100E85F1ACCC653000D8740 /* GameplayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E100E85D1ACCC653000D8740 /* GameplayLayer.cpp */; };
 		E100E8621ACCC65C000D8740 /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E100E8601ACCC65C000D8740 /* PauseLayer.cpp */; };
+		E14A54EA1B04284400D1459D /* Jump_Obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = E14A54E91B04284400D1459D /* Jump_Obstacle.png */; };
+		E14A54ED1B04284D00D1459D /* Duck_Obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */; };
 		E17C23381AF04EB800CD37AB /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23361AF04EB800CD37AB /* HudLayer.cpp */; };
 		E17C233B1AF04FE700CD37AB /* OptionsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23391AF04FE700CD37AB /* OptionsLayer.cpp */; };
 		E17C233E1AF4477E00CD37AB /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C233C1AF4477E00CD37AB /* BaseLayer.cpp */; };
@@ -144,6 +146,8 @@
 		E100E85E1ACCC653000D8740 /* GameplayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayLayer.h; sourceTree = "<group>"; };
 		E100E8601ACCC65C000D8740 /* PauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseLayer.cpp; sourceTree = "<group>"; };
 		E100E8611ACCC65C000D8740 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
+		E14A54E91B04284400D1459D /* Jump_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jump_Obstacle.png; path = res/Jump_Obstacle.png; sourceTree = "<group>"; };
+		E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Duck_Obstacle.png; sourceTree = "<group>"; };
 		E17C23361AF04EB800CD37AB /* HudLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer.cpp; sourceTree = "<group>"; };
 		E17C23371AF04EB800CD37AB /* HudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer.h; sourceTree = "<group>"; };
 		E17C23391AF04FE700CD37AB /* OptionsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OptionsLayer.cpp; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */,
+				E14A54E91B04284400D1459D /* Jump_Obstacle.png */,
 				E17C23561AFB0F4200CD37AB /* Player_Atlas_Black.png */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
@@ -443,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
+				E14A54ED1B04284D00D1459D /* Duck_Obstacle.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
@@ -455,6 +462,7 @@
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				E14A54EA1B04284400D1459D /* Jump_Obstacle.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,

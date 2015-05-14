@@ -82,7 +82,7 @@ void MainMenuLayer::TransitionToGame()
 
 void MainMenuLayer::HideButtons()
 {
-    MoveBy* move = MoveBy::create(0.5f, ccp(512 * 0.8f, 0));
+    MoveBy* move = MoveBy::create(0.5f, Vec2(512 * 0.8f, 0));
     playButton->runAction((Action*) move);
 }
 

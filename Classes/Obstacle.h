@@ -12,13 +12,19 @@
 #include <stdio.h>
 #include "cocos2d.h"
 
+enum ObstacleType
+{
+    JUMP = 0,
+    DUCK = 1
+};
+
 class Obstacle : public cocos2d::Sprite
 {
 public:
     Obstacle(std::string _filename);
     ~Obstacle();
-    
-    cocos2d::Sprite *mySprite;
+
+    ObstacleType obsType;
 };
 
 #endif /* defined(__TwistedSystem__Obstacle__) */
