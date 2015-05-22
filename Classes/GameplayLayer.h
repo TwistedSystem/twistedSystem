@@ -48,6 +48,8 @@ public:
     Player *player;
     std::vector<Enemy*> enemies;
     
+    cocos2d::Label *startTimerLabel;
+    
     cocos2d::ui::Button *jumpButton;
     cocos2d::ui::Button *duckButton;
     

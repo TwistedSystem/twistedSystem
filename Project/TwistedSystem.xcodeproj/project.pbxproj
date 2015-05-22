@@ -61,6 +61,8 @@
 		E17C23521AFAF8FC00CD37AB /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23501AFAF8FC00CD37AB /* Obstacle.cpp */; };
 		E17C23551AFAF92F00CD37AB /* ObstacleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23531AFAF92F00CD37AB /* ObstacleManager.cpp */; };
 		E17C23571AFB0F4200CD37AB /* Player_Atlas_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C23561AFB0F4200CD37AB /* Player_Atlas_Black.png */; };
+		E1BB5A091B0FD9DD0088D9EC /* CartonSixBMP.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E1BB5A071B0FD9DD0088D9EC /* CartonSixBMP.fnt */; };
+		E1BB5A0A1B0FD9DD0088D9EC /* CartonSixBMP.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BB5A081B0FD9DD0088D9EC /* CartonSixBMP.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +167,8 @@
 		E17C23531AFAF92F00CD37AB /* ObstacleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObstacleManager.cpp; sourceTree = "<group>"; };
 		E17C23541AFAF92F00CD37AB /* ObstacleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObstacleManager.h; sourceTree = "<group>"; };
 		E17C23561AFB0F4200CD37AB /* Player_Atlas_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player_Atlas_Black.png; sourceTree = "<group>"; };
+		E1BB5A071B0FD9DD0088D9EC /* CartonSixBMP.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartonSixBMP.fnt; sourceTree = "<group>"; };
+		E1BB5A081B0FD9DD0088D9EC /* CartonSixBMP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CartonSixBMP.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +265,8 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1BB5A071B0FD9DD0088D9EC /* CartonSixBMP.fnt */,
+				E1BB5A081B0FD9DD0088D9EC /* CartonSixBMP.png */,
 				E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */,
 				E14A54E91B04284400D1459D /* Jump_Obstacle.png */,
 				E17C23561AFB0F4200CD37AB /* Player_Atlas_Black.png */,
@@ -453,6 +459,7 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
+				E1BB5A0A1B0FD9DD0088D9EC /* CartonSixBMP.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				E17C23571AFB0F4200CD37AB /* Player_Atlas_Black.png in Resources */,
@@ -468,6 +475,7 @@
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
+				E1BB5A091B0FD9DD0088D9EC /* CartonSixBMP.fnt in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,

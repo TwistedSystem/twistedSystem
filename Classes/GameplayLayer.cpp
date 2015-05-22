@@ -14,8 +14,14 @@ using namespace ui;
 GameplayLayer::GameplayLayer()
 {
     player = nullptr;
-    startTimer = 3.0f;
+    startTimer = 5.0f;
     obsTimer = 1.5f;
+    
+    startTimerLabel = cocos2d::Label::createWithBMFont("CartonSixBMP.fnt", "3");
+    startTimerLabel->setPosition(Point(100, visibleSize.height / 2));
+    startTimerLabel->setColor(ccBLACK);
+    startTimerLabel->setVisible(false);
+    addChild(startTimerLabel, 101);
 }
 
 GameplayLayer::~GameplayLayer()
@@ -55,9 +61,13 @@ void GameplayLayer::enter()
     duckButton->Widget::setScale(3.0f);
     duckButton->setPosition(Point(visibleSize.width - 200, 200));
     duckButton->addTouchEventListener(this, toucheventselector(GameplayLayer::OnButtonPressed));
+    // textField->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){std::cout << "editing a TextField" << std::endl;
+
     duckButton->setTag(1);
     
     addChild(duckButton);
+    
+    startTimerLabel->setVisible(true);
 }
 
 void GameplayLayer::update(float _deltaTime)
@@ -65,8 +75,18 @@ void GameplayLayer::update(float _deltaTime)
     if (startTimer >= 0.0f)
     {
         startTimer -= _deltaTime;
+        
+        if(startTimer > 2.0f)
+            startTimerLabel->setString(String::createWithFormat("%d", (int)startTimer - 1)->getCString());
+        
+        if(startTimer < 2.0f && startTimer > 1.9f)
+            startTimerLabel->setString("Go!");
+        
         if(startTimer < 0.0f)
+        {
+            removeChild(startTimerLabel);
             obsManager->isRunning = true;
+        }
     }
     else
     {
