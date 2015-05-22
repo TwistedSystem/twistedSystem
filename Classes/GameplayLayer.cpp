@@ -79,10 +79,10 @@ void GameplayLayer::update(float _deltaTime)
         if(startTimer > 2.0f)
             startTimerLabel->setString(String::createWithFormat("%d", (int)startTimer - 1)->getCString());
         
-        if(startTimer < 2.0f && startTimer > 1.9f)
+        else if(startTimer < 2.0f && startTimer > 1.9f)
             startTimerLabel->setString("Go!");
         
-        if(startTimer < 0.0f)
+        else if(startTimer < 0.0f)
         {
             removeChild(startTimerLabel);
             obsManager->isRunning = true;
