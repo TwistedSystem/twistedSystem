@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "CocosGUI.h"
+#include "Constants.h"
 
 class BaseLayer : public cocos2d::LayerColor
 {

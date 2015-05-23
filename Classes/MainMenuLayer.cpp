@@ -74,6 +74,13 @@ void MainMenuLayer::enter()
     optionsButton->setTag(1);
     
     addChild(optionsButton);
+    
+    auto MenuHandler = [=](EventCustom *e)
+    {
+        this->ShowButtons();
+    };
+    
+    ED_ADD(this, "RESUME_MAIN_MENU", MenuHandler);
 }
 
 void MainMenuLayer::update(float _deltaTime)
@@ -109,14 +116,12 @@ void MainMenuLayer::OnButtonPressed(int _tag)
         default:
             break;
     }
-
 }
 
 void MainMenuLayer::TransitionToGame()
 {
     //HideButtons();
-    gameplayLayer->enter();
-    gameplayLayer->StartGameLoop();
+    gEventDispatcher->dispatchCustomEvent("START_GAME");
     setVisible(false);
     // hide ads??
 }
@@ -124,12 +129,8 @@ void MainMenuLayer::TransitionToGame()
 void MainMenuLayer::TransitionToOptions()
 {
     HideButtons();
-    if(!optionsLayer->isSetup)
-    {
-        optionsLayer->enter();
-    }
-    
-    optionsLayer->show();
+    gEventDispatcher->dispatchCustomEvent("OPEN_OPTIONS_MENU");
+
     // hide ads??
 }
 
@@ -143,6 +144,7 @@ void MainMenuLayer::HideButtons()
 void MainMenuLayer::ShowButtons()
 {
     playButton->setTouchEnabled(true);
+    setVisible(true);
 }
 
 

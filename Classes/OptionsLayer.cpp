@@ -17,6 +17,15 @@ OptionsLayer::OptionsLayer()
 {
     backButton = nullptr;
     isSetup = false;
+    
+    auto OptionHandler = [=](EventCustom *e)
+    {
+        this->enter();
+    };
+    
+    ED_ADD(this, "OPEN_OPTIONS_MENU", OptionHandler);
+
+    setOpacity(0);
 }
 
 OptionsLayer::~OptionsLayer()
@@ -26,29 +35,33 @@ OptionsLayer::~OptionsLayer()
 
 void OptionsLayer::enter()
 {
-    backButton = Button::create();
-    backButton->setTouchEnabled(true);
-    backButton->loadTextures("Options_Background.png", "Options_Background.png");
-    backButton->Widget::setScale(1.0f);
-    backButton->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
-    backButton->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type)
+    if(!isSetup)
     {
-        switch (type)
+        backButton = Button::create();
+        backButton->loadTextures("Options_Background.png", "Options_Background.png");
+        backButton->Widget::setScale(1.0f);
+        backButton->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+        backButton->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type)
         {
-            case ui::Widget::TouchEventType::BEGAN:
-                OnButtonPressed(backButton->getTag());
-                break;
-            case ui::Widget::TouchEventType::ENDED:
-                break;
-            default:
-                break;
-        }
-    });
-    backButton->setTag(0);
+            switch (type)
+            {
+                case ui::Widget::TouchEventType::BEGAN:
+                    OnButtonPressed(backButton->getTag());
+                    break;
+                case ui::Widget::TouchEventType::ENDED:
+                    break;
+                default:
+                    break;
+            }
+        });
+        backButton->setTag(0);
     
-    addChild(backButton);
+        addChild(backButton);
+        
+        isSetup = true;
+    }
     
-    isSetup = true;
+    show();
 }
 
 void OptionsLayer::show()
@@ -63,7 +76,7 @@ void OptionsLayer::hide()
     setVisible(false);
     backButton->setTouchEnabled(false);
     unscheduleUpdate();
-    pMenu->playButton->setTouchEnabled(true);
+    gEventDispatcher->dispatchCustomEvent("RESUME_MAIN_MENU");
 }
 
 void OptionsLayer::exit()

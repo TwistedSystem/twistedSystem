@@ -151,6 +151,7 @@
 		E100E8611ACCC65C000D8740 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
 		E11400AB1B10140E0087D4EA /* Main_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Background.png; sourceTree = "<group>"; };
 		E11400AE1B101A570087D4EA /* Options_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Options_Background.png; sourceTree = "<group>"; };
+		E11400B01B10E5F00087D4EA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		E14A54E91B04284400D1459D /* Jump_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jump_Obstacle.png; path = res/Jump_Obstacle.png; sourceTree = "<group>"; };
 		E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Duck_Obstacle.png; sourceTree = "<group>"; };
 		E17C23391AF04FE700CD37AB /* OptionsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OptionsLayer.cpp; sourceTree = "<group>"; };
@@ -288,6 +289,7 @@
 			children = (
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
+				E11400B01B10E5F00087D4EA /* Constants.h */,
 				E17C234B1AFAF8C400CD37AB /* Game Objects */,
 				E17C233F1AF46B2300CD37AB /* Characters */,
 				E100E8491ACA4500000D8740 /* Scenes */,

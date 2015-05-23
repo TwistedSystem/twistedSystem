@@ -22,6 +22,13 @@ GameplayLayer::GameplayLayer()
     startTimerLabel->setColor(ccBLACK);
     startTimerLabel->setVisible(false);
     addChild(startTimerLabel, 101);
+    
+    auto StartGameHandler = [=](EventCustom *e)
+    {
+        this->enter();
+    };
+    
+    ED_ADD(this, "START_GAME", StartGameHandler);
 }
 
 GameplayLayer::~GameplayLayer()
@@ -68,6 +75,8 @@ void GameplayLayer::enter()
     addChild(duckButton);
     
     startTimerLabel->setVisible(true);
+    
+    StartGameLoop();
 }
 
 void GameplayLayer::update(float _deltaTime)
