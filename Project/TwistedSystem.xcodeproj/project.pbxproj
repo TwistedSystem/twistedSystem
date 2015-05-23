@@ -52,7 +52,6 @@
 		E100E8621ACCC65C000D8740 /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E100E8601ACCC65C000D8740 /* PauseLayer.cpp */; };
 		E14A54EA1B04284400D1459D /* Jump_Obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = E14A54E91B04284400D1459D /* Jump_Obstacle.png */; };
 		E14A54ED1B04284D00D1459D /* Duck_Obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */; };
-		E17C23381AF04EB800CD37AB /* HudLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23361AF04EB800CD37AB /* HudLayer.cpp */; };
 		E17C233B1AF04FE700CD37AB /* OptionsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23391AF04FE700CD37AB /* OptionsLayer.cpp */; };
 		E17C233E1AF4477E00CD37AB /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C233C1AF4477E00CD37AB /* BaseLayer.cpp */; };
 		E17C23421AF46B4000CD37AB /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23401AF46B4000CD37AB /* Player.cpp */; };
@@ -150,8 +149,6 @@
 		E100E8611ACCC65C000D8740 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
 		E14A54E91B04284400D1459D /* Jump_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jump_Obstacle.png; path = res/Jump_Obstacle.png; sourceTree = "<group>"; };
 		E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Duck_Obstacle.png; sourceTree = "<group>"; };
-		E17C23361AF04EB800CD37AB /* HudLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudLayer.cpp; sourceTree = "<group>"; };
-		E17C23371AF04EB800CD37AB /* HudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudLayer.h; sourceTree = "<group>"; };
 		E17C23391AF04FE700CD37AB /* OptionsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OptionsLayer.cpp; sourceTree = "<group>"; };
 		E17C233A1AF04FE700CD37AB /* OptionsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsLayer.h; sourceTree = "<group>"; };
 		E17C233C1AF4477E00CD37AB /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLayer.cpp; sourceTree = "<group>"; };
@@ -339,8 +336,6 @@
 				E100E85E1ACCC653000D8740 /* GameplayLayer.h */,
 				E100E8601ACCC65C000D8740 /* PauseLayer.cpp */,
 				E100E8611ACCC65C000D8740 /* PauseLayer.h */,
-				E17C23361AF04EB800CD37AB /* HudLayer.cpp */,
-				E17C23371AF04EB800CD37AB /* HudLayer.h */,
 				E17C23391AF04FE700CD37AB /* OptionsLayer.cpp */,
 				E17C233A1AF04FE700CD37AB /* OptionsLayer.h */,
 				E17C233C1AF4477E00CD37AB /* BaseLayer.cpp */,
@@ -495,7 +490,6 @@
 				E17C233B1AF04FE700CD37AB /* OptionsLayer.cpp in Sources */,
 				E100E8581ACCC5EE000D8740 /* GameScene.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				E17C23381AF04EB800CD37AB /* HudLayer.cpp in Sources */,
 				E100E8621ACCC65C000D8740 /* PauseLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				E100E85F1ACCC653000D8740 /* GameplayLayer.cpp in Sources */,

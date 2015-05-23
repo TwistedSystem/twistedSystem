@@ -13,10 +13,11 @@
 
 #include "MainMenuLayer.h"
 #include "GameplayLayer.h"
-#include "HudLayer.h"
+#include "OptionsLayer.h"
 
 enum
 {
+    OPTIONS_Z_ORDER = 10000,
     MENU_Z_ORDER = 9999,
     HUD_Z_ORDER = 999,
     GAMEPLAY_Z_ORDER = 99
@@ -33,6 +34,8 @@ public:
     
     GameplayLayer* gameplayLayer;
     MainMenuLayer* mainMenuLayer;
+    OptionsLayer* optionsLayer;
+    
 };
 
 #endif /* defined(__TwistedSystem__GameScene__) */

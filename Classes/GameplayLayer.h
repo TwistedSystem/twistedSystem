@@ -10,7 +10,6 @@
 #define __TwistedSystem__GameplayLayer__
 
 #include <stdio.h>
-#include "HudLayer.h"
 #include "PauseLayer.h"
 #include "BaseLayer.h"
 #include "Player.h"

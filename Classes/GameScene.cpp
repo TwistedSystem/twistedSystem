@@ -21,12 +21,16 @@ GameScene::GameScene(bool showAds)
     mainMenuLayer->enter();
     mainMenuLayer->setVisible(true);
     addChild(mainMenuLayer, MENU_Z_ORDER);
+    
+    optionsLayer = new OptionsLayer();
+    addChild(optionsLayer, OPTIONS_Z_ORDER);
 }
 
 GameScene::~GameScene()
 {
     delete gameplayLayer;
     delete mainMenuLayer;
+    delete optionsLayer;
 }
 
 GameScene* GameScene::scene(bool showAds)
