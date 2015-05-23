@@ -17,13 +17,15 @@ GameScene::GameScene(bool showAds)
     gameplayLayer = new GameplayLayer();
     addChild(gameplayLayer, GAMEPLAY_Z_ORDER);
     
-    mainMenuLayer = new MainMenuLayer(gameplayLayer, showAds);
+    optionsLayer = new OptionsLayer();
+    optionsLayer->setVisible(false);
+    addChild(optionsLayer, OPTIONS_Z_ORDER);
+    
+    mainMenuLayer = new MainMenuLayer(gameplayLayer, optionsLayer, showAds);
     mainMenuLayer->enter();
     mainMenuLayer->setVisible(true);
+    optionsLayer->pMenu = mainMenuLayer;
     addChild(mainMenuLayer, MENU_Z_ORDER);
-    
-    optionsLayer = new OptionsLayer();
-    addChild(optionsLayer, OPTIONS_Z_ORDER);
 }
 
 GameScene::~GameScene()

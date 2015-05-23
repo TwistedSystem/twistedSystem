@@ -11,13 +11,13 @@
 using namespace cocos2d;
 using namespace ui;
 
-MainMenuLayer::MainMenuLayer(GameplayLayer *_gameplayLayer, bool _showAds)
+MainMenuLayer::MainMenuLayer(GameplayLayer *_gameplayLayer, OptionsLayer *_optionsLayer, bool _showAds)
 {
     showAds = _showAds;
     gameplayLayer = _gameplayLayer;
+    optionsLayer = _optionsLayer;
     
     playButton = nullptr;
-    optionsLayer = nullptr;
 }
 
 MainMenuLayer::~MainMenuLayer()
@@ -27,15 +27,53 @@ MainMenuLayer::~MainMenuLayer()
 
 void MainMenuLayer::enter()
 {
+    background = Sprite::create("Main_Background.png");
+    background->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+    addChild(background);
+    
     playButton = Button::create();
     playButton->setTouchEnabled(true);
     playButton->loadTextures("CloseNormal.png", "CloseSelected.png");
     playButton->Widget::setScale(2.0f);
-    playButton->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2) + Point(0, -50));
-    playButton->addTouchEventListener(this, toucheventselector(MainMenuLayer::OnButtonPressed));
+    playButton->setPosition(Point(visibleSize.width / 2 + 100, visibleSize.height / 2 - 175));
+    playButton->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type)
+    {
+        switch (type)
+        {
+            case ui::Widget::TouchEventType::BEGAN:
+                OnButtonPressed(playButton->getTag());
+                break;
+            case ui::Widget::TouchEventType::ENDED:
+                break;
+            default:
+                break;
+        }
+    });
     playButton->setTag(0);
     
     addChild(playButton);
+    
+    optionsButton = Button::create();
+    optionsButton->setTouchEnabled(true);
+    optionsButton->loadTextures("CloseNormal.png", "CloseSelected.png");
+    optionsButton->Widget::setScale(2.0f);
+    optionsButton->setPosition(Point(visibleSize.width / 2 - 100, visibleSize.height / 2 - 175));
+    optionsButton->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type)
+    {
+        switch (type)
+        {
+            case ui::Widget::TouchEventType::BEGAN:
+                OnButtonPressed(optionsButton->getTag());
+                break;
+            case ui::Widget::TouchEventType::ENDED:
+                break;
+            default:
+                break;
+        }
+    });
+    optionsButton->setTag(1);
+    
+    addChild(optionsButton);
 }
 
 void MainMenuLayer::update(float _deltaTime)
@@ -53,15 +91,18 @@ void MainMenuLayer::exit()
     
 }
 
-void MainMenuLayer::OnButtonPressed(Ref *pSender)
+void MainMenuLayer::OnButtonPressed(int _tag)
 {
-    MenuItem* item = (MenuItem*) pSender;
-
-    switch (item->getTag()) {
-            
+    switch (_tag)
+    {
         case PLAY_BUTTON:
         {
             TransitionToGame();
+            break;
+        }
+        case OPTIONS_BUTTON:
+        {
+            TransitionToOptions();
             break;
         }
             
@@ -73,17 +114,35 @@ void MainMenuLayer::OnButtonPressed(Ref *pSender)
 
 void MainMenuLayer::TransitionToGame()
 {
-    HideButtons();
+    //HideButtons();
     gameplayLayer->enter();
     gameplayLayer->StartGameLoop();
     setVisible(false);
     // hide ads??
 }
 
+void MainMenuLayer::TransitionToOptions()
+{
+    HideButtons();
+    if(!optionsLayer->isSetup)
+    {
+        optionsLayer->enter();
+    }
+    
+    optionsLayer->show();
+    // hide ads??
+}
+
 void MainMenuLayer::HideButtons()
 {
-    MoveBy* move = MoveBy::create(0.5f, Vec2(512 * 0.8f, 0));
-    playButton->runAction((Action*) move);
+    //MoveBy* move = MoveBy::create(0.5f, Vec2(512 * 0.8f, 0));
+    //playButton->runAction((Action*) move);
+    playButton->setTouchEnabled(false);
+}
+
+void MainMenuLayer::ShowButtons()
+{
+    playButton->setTouchEnabled(true);
 }
 
 

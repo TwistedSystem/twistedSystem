@@ -11,6 +11,14 @@
 
 #include <stdio.h>
 #include "BaseLayer.h"
+#include "cocos2d.h"
+
+enum OptionsButtons
+{
+    BACK_BUTTON = 0,
+};
+
+class MainMenuLayer;
 
 class OptionsLayer : public BaseLayer
 {
@@ -29,7 +37,13 @@ public:
     void show();
     void hide();
     
-    cocos2d::ui::Button *settingsButton;
+    bool isSetup;
+
+    void OnButtonPressed(int _tag);
+    
+    cocos2d::ui::Button *backButton;
+    
+    MainMenuLayer *pMenu;
 };
 
 

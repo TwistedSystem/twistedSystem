@@ -23,7 +23,7 @@ enum MenuButtons
 class MainMenuLayer : public BaseLayer
 {
 public:
-    MainMenuLayer(GameplayLayer* _gameplayLayer, bool _showAds = false);
+    MainMenuLayer(GameplayLayer* _gameplayLayer, OptionsLayer *_optionsLayer, bool _showAds = false);
     virtual ~MainMenuLayer();
     
     virtual void enter() override;
@@ -35,14 +35,18 @@ public:
     virtual void exit() override;
     
 private:
-    void OnButtonPressed(Ref *pSender);
+    void OnButtonPressed(int _tag);
     void TransitionToGame();
+    void TransitionToOptions();
     void HideButtons();
-    
-    
-    // cocos2d::Sprite* logo;
+public:
+    void ShowButtons();
+
+    //cocos2d::Sprite* logo;
     
     cocos2d::ui::Button *playButton;
+    cocos2d::ui::Button *optionsButton;
+    cocos2d::Sprite *background;
     
     GameplayLayer* gameplayLayer;
     OptionsLayer* optionsLayer;
