@@ -70,7 +70,21 @@ void GameplayLayer::enter()
     jumpButton->loadTextures("CloseNormal.png", "CloseSelected.png");
     jumpButton->Widget::setScale(3.0f);
     jumpButton->setPosition(Point(200, visibleSize.height - 200));
-    jumpButton->addTouchEventListener(this, toucheventselector(GameplayLayer::OnButtonPressed));
+    jumpButton->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type)
+                                      {
+                                          switch (type)
+                                          {
+                                              case ui::Widget::TouchEventType::BEGAN:
+                                                  GameplayLayer::OnButtonPressed(jumpButton);
+                                                  break;
+                                              case ui::Widget::TouchEventType::MOVED:
+                                                  break;
+                                              case ui::Widget::TouchEventType::CANCELED:
+                                                  break;
+                                              case ui::Widget::TouchEventType::ENDED:
+                                                  break;
+                                          }
+                                      });
     jumpButton->setTag(0);
     addChild(jumpButton);
     
@@ -79,7 +93,21 @@ void GameplayLayer::enter()
     duckButton->loadTextures("CloseNormal.png", "CloseSelected.png");
     duckButton->Widget::setScale(3.0f);
     duckButton->setPosition(Point(200, 200));
-    duckButton->addTouchEventListener(this, toucheventselector(GameplayLayer::OnButtonPressed));
+    duckButton->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type)
+                                      {
+                                          switch (type)
+                                          {
+                                              case ui::Widget::TouchEventType::BEGAN:
+                                                  GameplayLayer::OnButtonPressed(duckButton);
+                                                  break;
+                                              case ui::Widget::TouchEventType::MOVED:
+                                                  break;
+                                              case ui::Widget::TouchEventType::CANCELED:
+                                                  break;
+                                              case ui::Widget::TouchEventType::ENDED:
+                                                  break;
+                                          }
+                                      });
     duckButton->setTag(1);
     addChild(duckButton);
     

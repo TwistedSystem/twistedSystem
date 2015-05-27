@@ -63,7 +63,7 @@ void MainMenuLayer::enter()
         switch (type)
         {
             case ui::Widget::TouchEventType::BEGAN:
-                //OnButtonPressed(optionsButton->getTag());
+                OnButtonPressed(optionsButton->getTag());
                 break;
             case ui::Widget::TouchEventType::ENDED:
                 OnButtonPressed(optionsButton->getTag());
