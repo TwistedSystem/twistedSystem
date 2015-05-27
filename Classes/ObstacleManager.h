@@ -12,10 +12,12 @@
 #include <stdio.h>
 #include "Obstacle.h"
 
+class GameplayLayer;
+
 class ObstacleManager : public cocos2d::Sprite
 {
 public:
-    ObstacleManager();
+    ObstacleManager(GameplayLayer *_pGS);
     ~ObstacleManager();
     
     void update(float _deltaTime);
@@ -25,6 +27,8 @@ public:
     std::vector<Obstacle*> obstacles;
     
     bool isRunning;
+    
+    GameplayLayer *pGS;
 };
 
 #endif /* defined(__TwistedSystem__ObstacleManager__) */

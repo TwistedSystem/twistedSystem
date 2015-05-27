@@ -23,6 +23,7 @@ OptionsLayer::OptionsLayer()
         this->enter();
     };
     
+    //Registers OptionsLayer to listen for a specific event.
     ED_ADD(this, "OPEN_OPTIONS_MENU", OptionHandler);
 
     setOpacity(0);

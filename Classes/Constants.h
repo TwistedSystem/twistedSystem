@@ -10,6 +10,7 @@
 #define TwistedSystem_Constants_h
 
 #include "cocos2d.h"
+#include <iostream>
 
 #define gEventDispatcher Director::getInstance()->getEventDispatcher()
 #define ED_ADD(target, notif, handler) gEventDispatcher->addEventListenerWithSceneGraphPriority(EventListenerCustom::create(notif, handler), target);

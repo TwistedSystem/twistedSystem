@@ -7,6 +7,7 @@
 //
 
 #include "GameplayLayer.h"
+#include <iostream>
 
 using namespace cocos2d;
 using namespace ui;
@@ -14,6 +15,7 @@ using namespace ui;
 GameplayLayer::GameplayLayer()
 {
     player = nullptr;
+    ship = nullptr;
     startTimer = 5.0f;
     obsTimer = 1.5f;
     
@@ -23,12 +25,22 @@ GameplayLayer::GameplayLayer()
     startTimerLabel->setVisible(false);
     addChild(startTimerLabel, 101);
     
+    
+    
     auto StartGameHandler = [=](EventCustom *e)
     {
         this->enter();
     };
     
+    // Registers GameplayLayer to listen for a specific event.
     ED_ADD(this, "START_GAME", StartGameHandler);
+    
+    auto EndGameHandler = [=](EventCustom *e)
+    {
+        this->EndGame();
+    };
+    
+    ED_ADD(this, "END_GAME", EndGameHandler);
 }
 
 GameplayLayer::~GameplayLayer()
@@ -45,34 +57,36 @@ void GameplayLayer::enter()
     
     if(player == nullptr)
     {
-        player = new Player(0, "Player_Atlas_Black.png");
-        addChild(player, 100);
+        //player = new Player(0, "Player_Atlas_Black.png");
+        player = new Player(0, "Test_Character.png");
+        addChild(player, 101);
     }
     
-    obsManager = new ObstacleManager();
-    addChild(obsManager, 100);
+    obsManager = new ObstacleManager(this);
+    //addChild(obsManager, 100);
     
     jumpButton = Button::create();
     jumpButton->setTouchEnabled(true);
     jumpButton->loadTextures("CloseNormal.png", "CloseSelected.png");
     jumpButton->Widget::setScale(3.0f);
-    jumpButton->setPosition(Point(visibleSize.width - 200, visibleSize.height - 200));
+    jumpButton->setPosition(Point(200, visibleSize.height - 200));
     jumpButton->addTouchEventListener(this, toucheventselector(GameplayLayer::OnButtonPressed));
     jumpButton->setTag(0);
-    
     addChild(jumpButton);
     
     duckButton = Button::create();
     duckButton->setTouchEnabled(true);
     duckButton->loadTextures("CloseNormal.png", "CloseSelected.png");
     duckButton->Widget::setScale(3.0f);
-    duckButton->setPosition(Point(visibleSize.width - 200, 200));
+    duckButton->setPosition(Point(200, 200));
     duckButton->addTouchEventListener(this, toucheventselector(GameplayLayer::OnButtonPressed));
-    // textField->addTouchEventListener([&](Ref* sender, Widget::TouchEventType type){std::cout << "editing a TextField" << std::endl;
-
     duckButton->setTag(1);
-    
     addChild(duckButton);
+    
+    ship = Sprite::create("Ship.png");
+    ship->setPosition(Point(visibleSize.width - ship->getTextureRect().size.width * 0.5f, visibleSize.height - ship->getTextureRect().size.height  * 0.5f));
+    addChild(ship);
+
     
     startTimerLabel->setVisible(true);
     
@@ -109,6 +123,8 @@ void GameplayLayer::update(float _deltaTime)
     
     obsManager->update(_deltaTime);
     player->update(_deltaTime);
+    
+    CheckCollision();
 }
 
 void GameplayLayer::render()
@@ -152,5 +168,50 @@ void GameplayLayer::OnButtonPressed(Ref *pSender)
     }
     
 }
+
+void GameplayLayer::CheckCollision()
+{
+    if(!player->isAlive)
+        return;
+    
+    float playerY = player->getPositionY();
+    
+    for (int i = 0; i < obsManager->obstacles.size(); i++)
+    {
+        Obstacle *currentObs = obsManager->obstacles[i];
+        float obsY = currentObs->getPositionY() - currentObs->getContentSize().height;
+        
+        if(obsY < playerY + (player->getContentSize().height / 2) /*&& obsY > playerY - (player->getContentSize().height / 2)*/)
+        {
+            if(currentObs->getTextureRect().intersectsRect(player->getTextureRect()) && !player->isInvulnerable)
+            {
+                //if(player->jumpAnimation->isDone())
+                //{
+                    player->Knockback();
+                    std::cout << "Player Hit" << std::endl;
+                break;
+                //}
+            }
+        }
+    }
+}
+
+
+void GameplayLayer::EndGame()
+{
+    //RestartGame();
+    
+    //setVisible(false);
+    //gEventDispatcher->dispatchCustomEvent("RESUME_MAIN_MENU");
+}
+
+void GameplayLayer::RestartGame()
+{
+    setVisible(true);
+    
+    startTimer = 5.0f;
+    obsTimer = 1.5f;
+}
+
 
 

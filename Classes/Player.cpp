@@ -22,16 +22,34 @@ Player::Player(short _playerNum, std::string _filename)
         
         Size visibleSize = Director::getInstance()->getVisibleSize();
         
-        setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+        // Places the player in the correct "slot"
+        switch (playerNum)
+        {
+            case 0:
+                setPosition(Point(visibleSize.width * 0.82f, visibleSize.height * 0.54f));
+                break;
+            case 1:
+                setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+                break;
+            case 2:
+                setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+                break;
+            case 3:
+                setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+                break;
+                
+            default:
+                break;
+        }
         
         // placeholder animations
-        runAnimation = CreateAnimation(1, 64, 128, 0, 0, true, 0.2f);
+        runAnimation = CreateAnimation(1, 64, getTextureRect().size.height, 0, 0, true, 0.2f);
         runAnimation->retain();
         
-        jumpAnimation = CreateAnimation(1, 64, 128, 128, 0, false, 0.5f);
+        jumpAnimation = CreateAnimation(1, 64, getTextureRect().size.height, 0, 0, false, 0.5f);
         jumpAnimation->retain();
         
-        duckAnimation = CreateAnimation(1, 64, 128, 64, 0, false, 0.5f);
+        duckAnimation = CreateAnimation(1, 64, getTextureRect().size.height, 0, 0, false, 0.5f);
         duckAnimation->retain();
         
         runAction(runAnimation);

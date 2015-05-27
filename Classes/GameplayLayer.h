@@ -40,6 +40,11 @@ public:
     void StartGameLoop();
     void OnButtonPressed(Ref *pSender);
     
+    void CheckCollision();
+    
+    void EndGame();
+    void RestartGame();
+    
     
     float startTimer;
     float obsTimer;
@@ -51,6 +56,8 @@ public:
     
     cocos2d::ui::Button *jumpButton;
     cocos2d::ui::Button *duckButton;
+    
+    cocos2d::Sprite *ship;
     
     ObstacleManager *obsManager;
 };

@@ -15,7 +15,8 @@ Obstacle::Obstacle(std::string _filename)
     if(initWithFile(_filename.c_str()))
     {
         Size visibleSize = Director::getInstance()->getVisibleSize();
-        setPosition(Point(visibleSize.width / 2, visibleSize.height + 64));
+        setPosition(Point(visibleSize.width, visibleSize.height * 0.9f));
+        setRotation(52.0f);
         setVisible(true);
     }
 }

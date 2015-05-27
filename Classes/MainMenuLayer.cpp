@@ -63,9 +63,10 @@ void MainMenuLayer::enter()
         switch (type)
         {
             case ui::Widget::TouchEventType::BEGAN:
-                OnButtonPressed(optionsButton->getTag());
+                //OnButtonPressed(optionsButton->getTag());
                 break;
             case ui::Widget::TouchEventType::ENDED:
+                OnButtonPressed(optionsButton->getTag());
                 break;
             default:
                 break;
@@ -128,8 +129,8 @@ void MainMenuLayer::TransitionToGame()
 
 void MainMenuLayer::TransitionToOptions()
 {
-    HideButtons();
     gEventDispatcher->dispatchCustomEvent("OPEN_OPTIONS_MENU");
+    HideButtons();
 
     // hide ads??
 }
@@ -139,11 +140,13 @@ void MainMenuLayer::HideButtons()
     //MoveBy* move = MoveBy::create(0.5f, Vec2(512 * 0.8f, 0));
     //playButton->runAction((Action*) move);
     playButton->setTouchEnabled(false);
+    optionsButton->setTouchEnabled(false);
 }
 
 void MainMenuLayer::ShowButtons()
 {
     playButton->setTouchEnabled(true);
+    optionsButton->setTouchEnabled(true);
     setVisible(true);
 }
 

@@ -52,8 +52,10 @@
 		E100E8621ACCC65C000D8740 /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E100E8601ACCC65C000D8740 /* PauseLayer.cpp */; };
 		E11400AC1B10140E0087D4EA /* Main_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = E11400AB1B10140E0087D4EA /* Main_Background.png */; };
 		E11400AF1B101A570087D4EA /* Options_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = E11400AE1B101A570087D4EA /* Options_Background.png */; };
-		E14A54EA1B04284400D1459D /* Jump_Obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = E14A54E91B04284400D1459D /* Jump_Obstacle.png */; };
-		E14A54ED1B04284D00D1459D /* Duck_Obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */; };
+		E11400B21B10F9A00087D4EA /* Test_Character.png in Resources */ = {isa = PBXBuildFile; fileRef = E11400B11B10F9A00087D4EA /* Test_Character.png */; };
+		E11400B41B10F9A60087D4EA /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = E11400B31B10F9A60087D4EA /* Ship.png */; };
+		E11400B61B1122FD0087D4EA /* Jump_Obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = E11400B51B1122FD0087D4EA /* Jump_Obstacle.png */; };
+		E11400B81B1123CD0087D4EA /* Duck_Obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = E11400B71B1123CD0087D4EA /* Duck_Obstacle.png */; };
 		E17C233B1AF04FE700CD37AB /* OptionsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23391AF04FE700CD37AB /* OptionsLayer.cpp */; };
 		E17C233E1AF4477E00CD37AB /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C233C1AF4477E00CD37AB /* BaseLayer.cpp */; };
 		E17C23421AF46B4000CD37AB /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E17C23401AF46B4000CD37AB /* Player.cpp */; };
@@ -152,8 +154,10 @@
 		E11400AB1B10140E0087D4EA /* Main_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Main_Background.png; sourceTree = "<group>"; };
 		E11400AE1B101A570087D4EA /* Options_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Options_Background.png; sourceTree = "<group>"; };
 		E11400B01B10E5F00087D4EA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		E14A54E91B04284400D1459D /* Jump_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Jump_Obstacle.png; path = res/Jump_Obstacle.png; sourceTree = "<group>"; };
-		E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Duck_Obstacle.png; sourceTree = "<group>"; };
+		E11400B11B10F9A00087D4EA /* Test_Character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Test_Character.png; sourceTree = "<group>"; };
+		E11400B31B10F9A60087D4EA /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
+		E11400B51B1122FD0087D4EA /* Jump_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jump_Obstacle.png; sourceTree = "<group>"; };
+		E11400B71B1123CD0087D4EA /* Duck_Obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Duck_Obstacle.png; sourceTree = "<group>"; };
 		E17C23391AF04FE700CD37AB /* OptionsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OptionsLayer.cpp; sourceTree = "<group>"; };
 		E17C233A1AF04FE700CD37AB /* OptionsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsLayer.h; sourceTree = "<group>"; };
 		E17C233C1AF4477E00CD37AB /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLayer.cpp; sourceTree = "<group>"; };
@@ -267,12 +271,14 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E11400B71B1123CD0087D4EA /* Duck_Obstacle.png */,
+				E11400B51B1122FD0087D4EA /* Jump_Obstacle.png */,
+				E11400B31B10F9A60087D4EA /* Ship.png */,
+				E11400B11B10F9A00087D4EA /* Test_Character.png */,
 				E11400AE1B101A570087D4EA /* Options_Background.png */,
 				E11400AB1B10140E0087D4EA /* Main_Background.png */,
 				E1BB5A071B0FD9DD0088D9EC /* CartonSixBMP.fnt */,
 				E1BB5A081B0FD9DD0088D9EC /* CartonSixBMP.png */,
-				E14A54EC1B04284D00D1459D /* Duck_Obstacle.png */,
-				E14A54E91B04284400D1459D /* Jump_Obstacle.png */,
 				E17C23561AFB0F4200CD37AB /* Player_Atlas_Black.png */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
@@ -457,8 +463,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E11400B61B1122FD0087D4EA /* Jump_Obstacle.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				E14A54ED1B04284D00D1459D /* Duck_Obstacle.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
@@ -466,15 +472,16 @@
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				E11400AF1B101A570087D4EA /* Options_Background.png in Resources */,
+				E11400B21B10F9A00087D4EA /* Test_Character.png in Resources */,
 				E17C23571AFB0F4200CD37AB /* Player_Atlas_Black.png in Resources */,
 				E11400AC1B10140E0087D4EA /* Main_Background.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				E11400B41B10F9A60087D4EA /* Ship.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
-				E14A54EA1B04284400D1459D /* Jump_Obstacle.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
@@ -485,6 +492,7 @@
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
+				E11400B81B1123CD0087D4EA /* Duck_Obstacle.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 			);

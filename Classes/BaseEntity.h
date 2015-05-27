@@ -38,6 +38,12 @@ public:
     short score;
     short playerNum;
     
+    bool isInvulnerable;
+    float invulnerableTimer;
+    
+    bool isAlive;
+    float deathTimer;
+    
     std::string playerModel;
     
     cocos2d::Texture2D *playerAtlas;
@@ -48,6 +54,7 @@ public:
     
     cocos2d::JumpBy *jumpAction;
     cocos2d::Action *duckAction;
+    cocos2d::MoveBy *knockbackAction;
     
     PlayerState currentState;
     
