@@ -59,6 +59,11 @@ void GameplayLayer::enter()
     {
         //player = new Player(0, "Player_Atlas_Black.png");
         player = new Player(0, "Test_Character.png");
+        
+        auto physicsBody = PhysicsBody::createBox(player->getContentSize(), PhysicsMaterial(0.0f, 1.0f, 0.0f));
+        physicsBody->setDynamic(false);
+        
+        player->setPhysicsBody(physicsBody);
         addChild(player, 101);
     }
     
@@ -112,7 +117,7 @@ void GameplayLayer::enter()
     addChild(duckButton);
     
     ship = Sprite::create("Ship.png");
-    ship->setPosition(Point(visibleSize.width - ship->getTextureRect().size.width * 0.5f, visibleSize.height - ship->getTextureRect().size.height  * 0.5f));
+    ship->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
     addChild(ship);
 
     
@@ -209,18 +214,18 @@ void GameplayLayer::CheckCollision()
         Obstacle *currentObs = obsManager->obstacles[i];
         float obsY = currentObs->getPositionY() - currentObs->getContentSize().height;
         
-        if(obsY < playerY + (player->getContentSize().height / 2) /*&& obsY > playerY - (player->getContentSize().height / 2)*/)
-        {
-            if(currentObs->getTextureRect().intersectsRect(player->getTextureRect()) && !player->isInvulnerable)
+        //if(obsY < playerY + (player->getContentSize().height / 2) /*&& obsY > playerY - (player->getContentSize().height / 2)*/)
+        //{
+            if(currentObs->getTextureRect().intersectsRect(player->getTextureRect()) /*&& !player->isInvulnerable*/)
             {
                 //if(player->jumpAnimation->isDone())
                 //{
-                    player->Knockback();
+                    //player->Knockback();
                     std::cout << "Player Hit" << std::endl;
                 break;
                 //}
             }
-        }
+        //}
     }
 }
 

@@ -128,6 +128,9 @@ void BaseEntity::ApplyMovement(int _typeOfMovement)
     // TODO:
     // identify the type of movement and apply that to the player
     
+    if(!isAlive)
+        return;
+    
     if(_typeOfMovement == 0)
     {
         // jump
