@@ -7,7 +7,6 @@
 //
 
 #include "Player.h"
-#include "Constants.h"
 
 using namespace cocos2d;
 
@@ -56,13 +55,6 @@ Player::Player(short _playerNum, std::string _filename)
         runAction(runAnimation);
         
         CreateActions();
-        
-        auto CollisionHandler = [=](EventCustom *e)
-        {
-            this->Knockback();
-        };
-        
-        ED_ADD(this, "PLAYER_1_COLLISION", CollisionHandler);
     }
 }
 
