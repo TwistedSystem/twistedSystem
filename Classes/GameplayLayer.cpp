@@ -11,6 +11,8 @@
 
 using namespace cocos2d;
 using namespace ui;
+USING_NS_CC;
+
 
 GameplayLayer::GameplayLayer()
 {
@@ -115,8 +117,11 @@ void GameplayLayer::enter()
     ship->setPosition(Point(visibleSize.width - ship->getTextureRect().size.width * 0.5f, visibleSize.height - ship->getTextureRect().size.height  * 0.5f));
     addChild(ship);
 
-    
     startTimerLabel->setVisible(true);
+    
+    auto contactListener = EventListenerPhysicsContact::create();
+    contactListener->onContactBegin = CC_CALLBACK_1(GameplayLayer::onContactBegin, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
     
     StartGameLoop();
 }
@@ -151,8 +156,6 @@ void GameplayLayer::update(float _deltaTime)
     
     obsManager->update(_deltaTime);
     player->update(_deltaTime);
-    
-    CheckCollision();
 }
 
 void GameplayLayer::render()
@@ -194,36 +197,43 @@ void GameplayLayer::OnButtonPressed(Ref *pSender)
         default:
             break;
     }
-    
 }
 
-void GameplayLayer::CheckCollision()
+bool GameplayLayer::onContactBegin(const PhysicsContact& contact)
+{
+    return HandleCollision(contact);
+}
+
+bool GameplayLayer::HandleCollision(const PhysicsContact& contact)
 {
     if(!player->isAlive)
-        return;
+        return false;
     
-    float playerY = player->getPositionY();
-    
-    for (int i = 0; i < obsManager->obstacles.size(); i++)
+    if(!player->isInvulnerable)
     {
-        Obstacle *currentObs = obsManager->obstacles[i];
-        float obsY = currentObs->getPositionY() - currentObs->getContentSize().height;
-        
-        if(obsY < playerY + (player->getContentSize().height / 2) /*&& obsY > playerY - (player->getContentSize().height / 2)*/)
+        if(contact.getShapeA()->getTag() == 3 || contact.getShapeB()->getTag() == 3)
         {
-            if(currentObs->getTextureRect().intersectsRect(player->getTextureRect()) && !player->isInvulnerable)
+            if(!player->jumpAnimation->isDone())
             {
-                //if(player->jumpAnimation->isDone())
-                //{
-                    player->Knockback();
-                    std::cout << "Player Hit" << std::endl;
-                break;
-                //}
+                CCLOG("JUMP");
+                return false;
             }
         }
+        else if(contact.getShapeA()->getTag() == 4 || contact.getShapeB()->getTag() == 4)
+        {
+            if(!player->duckAnimation->isDone())
+            {
+                CCLOG("DUCK");
+                return false;
+            }
+        }
+        player->Knockback();
+        std::cout << "Player Hit" << std::endl;
+        return true;
     }
+    
+    return false;
 }
-
 
 void GameplayLayer::EndGame()
 {

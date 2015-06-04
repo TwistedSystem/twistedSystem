@@ -40,7 +40,8 @@ public:
     void StartGameLoop();
     void OnButtonPressed(Ref *pSender);
     
-    void CheckCollision();
+    bool HandleCollision(const cocos2d::PhysicsContact& contact);
+    bool onContactBegin(const cocos2d::PhysicsContact& contact);
     
     void EndGame();
     void RestartGame();

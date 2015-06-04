@@ -18,7 +18,6 @@ public:
     Player(short _playerNum, std::string _filename);
     ~Player();
     
-
 };
 
 #endif /* defined(__TwistedSystem__Player__) */

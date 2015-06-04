@@ -50,7 +50,6 @@ void MainMenuLayer::enter()
         }
     });
     playButton->setTag(0);
-    
     addChild(playButton);
     
     optionsButton = Button::create();
@@ -82,6 +81,9 @@ void MainMenuLayer::enter()
     };
     
     ED_ADD(this, "RESUME_MAIN_MENU", MenuHandler);
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 visibleOrigin = Director::getInstance()->getVisibleOrigin();
 }
 
 void MainMenuLayer::update(float _deltaTime)

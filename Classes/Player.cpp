@@ -22,11 +22,19 @@ Player::Player(short _playerNum, std::string _filename)
         
         Size visibleSize = Director::getInstance()->getVisibleSize();
         
+        auto spriteBody = PhysicsBody::createBox(getContentSize(), PhysicsMaterial(0, 1, 0));
+        spriteBody->setDynamic(false);
+        spriteBody->setGravityEnable(false);
+        spriteBody->setRotationEnable(false);
+        spriteBody->setContactTestBitmask(0xFFFFFFFF);
+        setPhysicsBody(spriteBody);
+        
         // Places the player in the correct "slot"
         switch (playerNum)
         {
             case 0:
                 setPosition(Point(visibleSize.width * 0.82f, visibleSize.height * 0.54f));
+                //cocos2d::Node::setPosition(visibleSize.width / 2, visibleSize.height / 2);
                 break;
             case 1:
                 setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));

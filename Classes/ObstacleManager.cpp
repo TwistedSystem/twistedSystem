@@ -43,8 +43,8 @@ void ObstacleManager::update(float _deltaTime)
                 if(obstacles[i] != nullptr)
                 {
                     Vec2 tempPos = obstacles[i]->getPosition();
-                    tempPos.y -= _deltaTime * 81; // will need to multiply by some speed factor
-                    tempPos.x -= _deltaTime * 121; // ~2:3 ratio
+                    tempPos.y -= _deltaTime * 101; // will need to multiply by some speed factor
+                    tempPos.x -= _deltaTime * 151; // ~2:3 ratio
                 
                     if(tempPos.y < 50)
                     {
@@ -75,6 +75,7 @@ void ObstacleManager::AddObstacle()
         temp = new Obstacle("Jump_Obstacle.png");
         temp->obsType = JUMP;
         temp->setTag(0);
+        temp->getPhysicsBody()->getShape(0)->setTag(3);
         obstacles.push_back(temp);
         pGS->addChild(temp, 99);
     }
@@ -83,6 +84,7 @@ void ObstacleManager::AddObstacle()
         temp = new Obstacle("Duck_Obstacle.png");
         temp->obsType = DUCK;
         temp->setTag(1);
+        temp->getPhysicsBody()->getShape(0)->setTag(4);
         obstacles.push_back(temp);
         pGS->addChild(temp, 102);
     }
