@@ -17,7 +17,6 @@ GameScene::GameScene(bool showAds)
         return;
     }
     getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-    
     getPhysicsWorld()->setGravity(Vec2(0, 0));
     
     setColor(Color3B(255, 255, 255));
