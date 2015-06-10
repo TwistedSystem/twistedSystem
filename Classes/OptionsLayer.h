@@ -38,10 +38,14 @@ public:
     void hide();
     
     bool isSetup;
+    
+    bool isUsingSwipes;
 
     void OnButtonPressed(int _tag);
     
     cocos2d::ui::Button *backButton;
+    cocos2d::ui::Button *controllerSettingsButton;
+    
     
     MainMenuLayer *pMenu;
 };

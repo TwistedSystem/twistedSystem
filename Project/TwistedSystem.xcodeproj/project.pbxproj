@@ -66,6 +66,7 @@
 		E17C23571AFB0F4200CD37AB /* Player_Atlas_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C23561AFB0F4200CD37AB /* Player_Atlas_Black.png */; };
 		E1BB5A091B0FD9DD0088D9EC /* CartonSixBMP.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E1BB5A071B0FD9DD0088D9EC /* CartonSixBMP.fnt */; };
 		E1BB5A0A1B0FD9DD0088D9EC /* CartonSixBMP.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BB5A081B0FD9DD0088D9EC /* CartonSixBMP.png */; };
+		EF0BE7F11B1A947D00CA14D2 /* BrownButton.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0BE7F01B1A947D00CA14D2 /* BrownButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		E17C23561AFB0F4200CD37AB /* Player_Atlas_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player_Atlas_Black.png; sourceTree = "<group>"; };
 		E1BB5A071B0FD9DD0088D9EC /* CartonSixBMP.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CartonSixBMP.fnt; sourceTree = "<group>"; };
 		E1BB5A081B0FD9DD0088D9EC /* CartonSixBMP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CartonSixBMP.png; sourceTree = "<group>"; };
+		EF0BE7F01B1A947D00CA14D2 /* BrownButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrownButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 				E11400B71B1123CD0087D4EA /* Duck_Obstacle.png */,
 				E11400B51B1122FD0087D4EA /* Jump_Obstacle.png */,
 				E11400B31B10F9A60087D4EA /* Ship.png */,
+				EF0BE7F01B1A947D00CA14D2 /* BrownButton.png */,
 				E11400B11B10F9A00087D4EA /* Test_Character.png */,
 				E11400AE1B101A570087D4EA /* Options_Background.png */,
 				E11400AB1B10140E0087D4EA /* Main_Background.png */,
@@ -466,6 +469,7 @@
 				E11400B61B1122FD0087D4EA /* Jump_Obstacle.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				EF0BE7F11B1A947D00CA14D2 /* BrownButton.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				E1BB5A0A1B0FD9DD0088D9EC /* CartonSixBMP.png in Resources */,
