@@ -43,8 +43,8 @@ void ObstacleManager::update(float _deltaTime)
                 if(obstacles[i] != nullptr)
                 {
                     Vec2 tempPos = obstacles[i]->getPosition();
-                    tempPos.y -= _deltaTime * 101; // will need to multiply by some speed factor
-                    tempPos.x -= _deltaTime * 151; // ~2:3 ratio
+                    tempPos.y -= _deltaTime * 140; // will need to multiply by some speed factor
+                    tempPos.x -= _deltaTime * 210; // ~2:3 ratio
                 
                     if(tempPos.y < 50)
                     {

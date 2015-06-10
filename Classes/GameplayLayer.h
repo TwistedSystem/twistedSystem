@@ -54,6 +54,7 @@ public:
     std::vector<Enemy*> enemies;
     
     cocos2d::Label *startTimerLabel;
+    cocos2d::Label *playerScoreLabel;
     
     cocos2d::ui::Button *jumpButton;
     cocos2d::ui::Button *duckButton;

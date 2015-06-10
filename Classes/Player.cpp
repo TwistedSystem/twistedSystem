@@ -60,6 +60,8 @@ Player::Player(short _playerNum, std::string _filename)
         duckAnimation = CreateAnimation(1, 64, getTextureRect().size.height, 0, 0, false, 0.5f);
         duckAnimation->retain();
         
+        runAction(jumpAnimation);
+        runAction(duckAnimation);
         runAction(runAnimation);
         
         CreateActions();

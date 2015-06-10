@@ -27,6 +27,12 @@ GameplayLayer::GameplayLayer()
     startTimerLabel->setVisible(false);
     addChild(startTimerLabel, 101);
     
+    playerScoreLabel = cocos2d::Label::createWithBMFont("CartonSixBMP.fnt", "0");
+    playerScoreLabel->setPosition(Point(100, 500));
+    playerScoreLabel->setColor(ccBLACK);
+    playerScoreLabel->setVisible(false);
+    addChild(playerScoreLabel, 101);
+    
     
     
     auto StartGameHandler = [=](EventCustom *e)
@@ -66,6 +72,10 @@ void GameplayLayer::enter()
     
     obsManager = new ObstacleManager(this);
     //addChild(obsManager, 100);
+    
+    ship = Sprite::create("Ship.png");
+    ship->setPosition(Point(visibleSize.width - ship->getTextureRect().size.width * 0.5f, visibleSize.height - ship->getTextureRect().size.height  * 0.5f));
+    addChild(ship);
     
     jumpButton = Button::create();
     jumpButton->setTouchEnabled(true);
@@ -112,12 +122,9 @@ void GameplayLayer::enter()
                                       });
     duckButton->setTag(1);
     addChild(duckButton);
-    
-    ship = Sprite::create("Ship.png");
-    ship->setPosition(Point(visibleSize.width - ship->getTextureRect().size.width * 0.5f, visibleSize.height - ship->getTextureRect().size.height  * 0.5f));
-    addChild(ship);
 
     startTimerLabel->setVisible(true);
+    playerScoreLabel->setVisible(true);
     
     auto contactListener = EventListenerPhysicsContact::create();
     contactListener->onContactBegin = CC_CALLBACK_1(GameplayLayer::onContactBegin, this);
@@ -206,32 +213,32 @@ bool GameplayLayer::onContactBegin(const PhysicsContact& contact)
 
 bool GameplayLayer::HandleCollision(const PhysicsContact& contact)
 {
-    if(!player->isAlive)
+    if(!player->isAlive || player->isInvulnerable)
         return false;
     
-    if(!player->isInvulnerable)
+    if(contact.getShapeA()->getTag() == 3 || contact.getShapeB()->getTag() == 3)
     {
-        if(contact.getShapeA()->getTag() == 3 || contact.getShapeB()->getTag() == 3)
+        if(!player->jumpAnimation->isDone())
         {
-            if(!player->jumpAnimation->isDone())
-            {
-                CCLOG("JUMP");
-                return false;
-            }
+            player->IncreaseScore();
+            playerScoreLabel->setString(String::createWithFormat("%d", (int)player->score)->getCString());
+            CCLOG("JUMP");
+            return false;
         }
-        else if(contact.getShapeA()->getTag() == 4 || contact.getShapeB()->getTag() == 4)
+    }
+    else if(contact.getShapeA()->getTag() == 4 || contact.getShapeB()->getTag() == 4)
+    {
+        if(!player->duckAnimation->isDone())
         {
-            if(!player->duckAnimation->isDone())
-            {
-                CCLOG("DUCK");
-                return false;
-            }
+            player->IncreaseScore();
+            playerScoreLabel->setString(String::createWithFormat("%d", (int)player->score)->getCString());
+            CCLOG("DUCK");
+            return false;
         }
-        player->Knockback();
-        std::cout << "Player Hit" << std::endl;
-        return true;
     }
     
+    player->Knockback();
+    std::cout << "Player Hit" << std::endl;
     return false;
 }
 

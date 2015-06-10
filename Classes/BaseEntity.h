@@ -34,6 +34,8 @@ public:
     virtual void ApplyMovement(int _typeOfMovement);
     virtual void Knockback();
     
+    virtual void IncreaseScore() {score++;}
+    
     short health;
     short score;
     short playerNum;

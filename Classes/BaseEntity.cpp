@@ -126,7 +126,10 @@ void BaseEntity::CreateActions()
 void BaseEntity::ApplyMovement(int _typeOfMovement)
 {
     // TODO:
-    // identify the type of movement and apply that to the player
+    // identify the type of movement and apply that to the player\
+    
+    if(currentState != RUN_STATE)
+        return;
     
     if(_typeOfMovement == 0)
     {
